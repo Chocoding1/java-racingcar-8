@@ -51,5 +51,18 @@ public class RacingController {
             }
             outputView.renderingRacingProgress(cars);
         }
+
+        // 최종 우승자 출력
+        List<Car> winners = new ArrayList<>();
+        Collections.sort(cars);
+        int maxDistance = cars.getFirst().getDistance();
+        for (Car car : cars) {
+            if (car.getDistance() < maxDistance) {
+                break;
+            }
+            winners.add(car);
+        }
+
+        outputView.renderingWinners(winners);
     }
 }

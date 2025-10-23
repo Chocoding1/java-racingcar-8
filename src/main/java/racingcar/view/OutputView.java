@@ -32,4 +32,17 @@ public class OutputView {
 
         System.out.print(sb);
     }
+
+    public void renderingWinners(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(RACING_WINNERS);
+        for (int i = 0; i < cars.size(); i++) {
+            sb.append(cars.get(i).getName());
+            if (i != cars.size() - 1) {
+                sb.append(", ");
+            }
+        }
+
+        System.out.println(sb);
+    }
 }
