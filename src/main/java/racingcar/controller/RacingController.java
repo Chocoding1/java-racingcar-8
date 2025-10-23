@@ -45,6 +45,11 @@ public class RacingController {
             for (Car car : cars) {
                 car.move();
             }
+            // 진행 상황 출력
+            if (i == 0) {
+                outputView.renderingRacingResultTitle();
+            }
+            outputView.renderingRacingProgress(cars);
         }
     }
 }

@@ -32,4 +32,13 @@ public class Car{
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder distanceForRendering = new StringBuilder();
+        for (int i = 0; i < distance; i++) {
+            distanceForRendering.append("-");
+        }
+        return name + " : " + distanceForRendering;
+    }
 }
