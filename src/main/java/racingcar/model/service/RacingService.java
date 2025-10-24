@@ -21,9 +21,15 @@ public class RacingService {
     public List<Car> namesToCars(String initialCarNames) {
         String[] carNames = initialCarNames.split(",");
 
-        return Arrays.stream(carNames)
+        List<Car> cars = Arrays.stream(carNames)
                 .map(Car::new)
                 .toList();
+
+        if (cars.size() < 2) {
+            throw new IllegalArgumentException("참가 자동차는 2대 이상이어야 합니다.");
+        }
+
+        return cars;
     }
 
     public void moveCars(List<Car> cars) {
