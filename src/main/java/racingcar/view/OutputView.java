@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class OutputView {
@@ -34,15 +35,14 @@ public class OutputView {
         System.out.print(sb);
     }
 
-    public void renderingWinners(List<Car> cars) {
+    public void renderingWinners(List<Car> winners) {
         StringBuilder sb = new StringBuilder();
         sb.append(RACING_WINNERS);
-        for (int i = 0; i < cars.size(); i++) {
-            sb.append(cars.get(i).getName());
-            if (i != cars.size() - 1) {
-                sb.append(", ");
-            }
-        }
+
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+        sb.append(winnerNames);
 
         System.out.println(sb);
     }
