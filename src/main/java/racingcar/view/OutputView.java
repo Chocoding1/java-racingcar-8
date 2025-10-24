@@ -26,19 +26,12 @@ public class OutputView {
     }
 
     public void renderingRacingResult(List<Car> cars) {
-        String racingResult = getRacingResult(cars);
-
-        System.out.print(racingResult + "\n");
+        System.out.println(getRacingResult(cars));
     }
 
     public void renderingWinners(List<Car> winners) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(RACING_WINNERS_TITLE);
-
-        String winnerNames = getWinnerNames(winners);
-        sb.append(winnerNames);
-
-        System.out.println(sb);
+        System.out.print(RACING_WINNERS_TITLE);
+        System.out.println(getWinnerNames(winners));
     }
 
     private static String getRacingResult(List<Car> cars) {
