@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.regex.Pattern;
 
 public class Car implements Comparable<Car> {
 
@@ -8,7 +9,7 @@ public class Car implements Comparable<Car> {
     private int distance;
 
     public Car(String name) {
-        validateNameLength(name);
+        validateName(name);
         this.name = name;
         this.distance = 0;
     }
@@ -24,6 +25,19 @@ public class Car implements Comparable<Car> {
     public void move() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             distance++;
+        }
+    }
+
+    private void validateName(String name) {
+        validateOnlyLetters(name);
+        validateNameLength(name);
+    }
+
+    private void validateOnlyLetters(String name) {
+        String lettersRegex = "^[a-zA-Z]$";
+
+        if (!Pattern.matches(lettersRegex, name)) {
+            throw new IllegalArgumentException("이름에 영문자 외의 문자가 포함되어 있습니다.");
         }
     }
 
