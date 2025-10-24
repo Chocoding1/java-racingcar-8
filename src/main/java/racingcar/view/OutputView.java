@@ -29,6 +29,7 @@ public class OutputView {
         for (Car car : cars) {
             sb.append(car.toString()).append("\n");
         }
+        sb.append("\n");
 
         System.out.print(sb);
     }
