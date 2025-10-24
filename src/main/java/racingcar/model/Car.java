@@ -34,7 +34,7 @@ public class Car implements Comparable<Car> {
     }
 
     private void validateOnlyLetters(String name) {
-        String lettersRegex = "^[a-zA-Z]$";
+        String lettersRegex = "^[a-zA-Z]*$";
 
         if (!Pattern.matches(lettersRegex, name)) {
             throw new IllegalArgumentException("이름에 영문자 외의 문자가 포함되어 있습니다.");
