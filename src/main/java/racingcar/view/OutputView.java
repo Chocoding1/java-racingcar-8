@@ -27,8 +27,8 @@ public class OutputView {
 
     public void renderingRacingResult(List<Car> cars) {
         String racingResult = cars.stream()
-                .map(Car::toString)
-                .collect(Collectors.joining("\n"));
+                .map(car -> car.toString() + "\n")
+                .collect(Collectors.joining(""));
 
         System.out.print(racingResult + "\n");
     }
