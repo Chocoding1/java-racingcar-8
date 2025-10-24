@@ -9,7 +9,7 @@ public class OutputView {
     private static OutputView instance;
 
     private static final String RACING_RESULT_TITLE = "실행 결과";
-    private static final String RACING_WINNERS = "최종 우승자 : ";
+    private static final String RACING_WINNERS_TITLE = "최종 우승자 : ";
 
     private OutputView() {
     }
@@ -25,19 +25,17 @@ public class OutputView {
         System.out.println(RACING_RESULT_TITLE);
     }
 
-    public void renderingRacingProgress(List<Car> cars) {
-        StringBuilder sb = new StringBuilder();
-        for (Car car : cars) {
-            sb.append(car.toString()).append("\n");
-        }
-        sb.append("\n");
+    public void renderingRacingResult(List<Car> cars) {
+        String racingResult = cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.joining("\n"));
 
-        System.out.print(sb);
+        System.out.print(racingResult + "\n");
     }
 
     public void renderingWinners(List<Car> winners) {
         StringBuilder sb = new StringBuilder();
-        sb.append(RACING_WINNERS);
+        sb.append(RACING_WINNERS_TITLE);
 
         String winnerNames = winners.stream()
                 .map(Car::getName)

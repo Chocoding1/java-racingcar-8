@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.service.RacingService;
@@ -41,7 +39,7 @@ public class RacingController {
             // 리스트 돌면서 자동차 전진
             racingService.moveCars(cars);
             // 진행 상황 출력
-            outputView.renderingRacingProgress(cars);
+            outputView.renderingRacingResult(cars);
         }
 
         // 최종 우승자 조회
