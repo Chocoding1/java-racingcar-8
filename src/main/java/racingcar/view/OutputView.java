@@ -26,9 +26,7 @@ public class OutputView {
     }
 
     public void renderingRacingResult(List<Car> cars) {
-        String racingResult = cars.stream()
-                .map(car -> car.toString() + "\n")
-                .collect(Collectors.joining(""));
+        String racingResult = getRacingResult(cars);
 
         System.out.print(racingResult + "\n");
     }
@@ -37,11 +35,21 @@ public class OutputView {
         StringBuilder sb = new StringBuilder();
         sb.append(RACING_WINNERS_TITLE);
 
-        String winnerNames = winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
+        String winnerNames = getWinnerNames(winners);
         sb.append(winnerNames);
 
         System.out.println(sb);
+    }
+
+    private static String getRacingResult(List<Car> cars) {
+        return cars.stream()
+                .map(car -> car.toString() + "\n")
+                .collect(Collectors.joining(""));
+    }
+
+    private static String getWinnerNames(List<Car> winners) {
+        return winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
     }
 }
