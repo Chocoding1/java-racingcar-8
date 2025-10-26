@@ -3,6 +3,9 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.regex.Pattern;
 
+import static racingcar.model.ErrorMessage.CAR_NAME_LENGTH_OVER;
+import static racingcar.model.ErrorMessage.NON_ENGLISH_CAR_NAME;
+
 public class Car implements Comparable<Car> {
 
     private final String name;
@@ -37,13 +40,13 @@ public class Car implements Comparable<Car> {
         String lettersRegex = "^[a-zA-Z]*$";
 
         if (!Pattern.matches(lettersRegex, name)) {
-            throw new IllegalArgumentException("이름에 영문자 외의 문자가 포함되어 있습니다.");
+            throw new IllegalArgumentException(NON_ENGLISH_CAR_NAME);
         }
     }
 
     private void validateNameLength(String name) {
         if (name.length() >= 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER);
         }
     }
 

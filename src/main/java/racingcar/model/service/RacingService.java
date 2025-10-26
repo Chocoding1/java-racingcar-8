@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
 
+import static racingcar.model.ErrorMessage.INSUFFICIENT_NUMBER_OF_CARS;
+
 public class RacingService {
 
     private static RacingService instance;
@@ -26,7 +28,7 @@ public class RacingService {
                 .toList();
 
         if (cars.size() < 2) {
-            throw new IllegalArgumentException("참가 자동차는 2대 이상이어야 합니다.");
+            throw new IllegalArgumentException(INSUFFICIENT_NUMBER_OF_CARS);
         }
 
         return cars;
