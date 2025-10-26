@@ -28,10 +28,8 @@ public class ParticipatingCars {
     }
 
     public List<Car> getWinners() {
-        // maxDistance 구해
         int maxDistance = getMaxDistance();
 
-        // stream api로 maxdistance와 같은 것들만 뽑아
         return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .toList();
