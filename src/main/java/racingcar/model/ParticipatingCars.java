@@ -28,10 +28,8 @@ public class ParticipatingCars {
     }
 
     public List<Car> getWinners() {
-        int maxDistance = getMaxDistance();
-
         return cars.stream()
-                .filter(car -> car.getDistance() == maxDistance)
+                .filter(car -> car.getDistance() == getMaxDistance())
                 .toList();
     }
 
