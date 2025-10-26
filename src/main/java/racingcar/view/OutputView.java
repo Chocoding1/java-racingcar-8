@@ -7,10 +7,10 @@ import racingcar.model.ParticipatingCars;
 
 public class OutputView {
 
-    private static OutputView instance;
-
     private static final String RACING_RESULT_TITLE = "실행 결과";
     private static final String RACING_WINNERS_TITLE = "최종 우승자 : ";
+
+    private static OutputView instance;
 
     private OutputView() {
     }
