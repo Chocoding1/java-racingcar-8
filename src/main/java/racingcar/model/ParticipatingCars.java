@@ -8,6 +8,7 @@ import static racingcar.model.ErrorMessage.INSUFFICIENT_NUMBER_OF_CARS;
 public class ParticipatingCars {
 
     private static final int MINIMUM_NUMBER_OF_CARS = 2;
+    private static final String NAME_SPLIT_DELIMITER = ",";
 
     private final List<Car> cars;
 
@@ -34,7 +35,7 @@ public class ParticipatingCars {
     }
 
     private List<Car> namesToCars(String initialCarNames) {
-        String[] carNames = initialCarNames.split(",");
+        String[] carNames = initialCarNames.split(NAME_SPLIT_DELIMITER);
 
         return Arrays.stream(carNames)
                 .map(Car::new)
