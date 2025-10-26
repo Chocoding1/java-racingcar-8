@@ -8,6 +8,10 @@ import static racingcar.model.ErrorMessage.NON_ENGLISH_CAR_NAME;
 
 public class Car implements Comparable<Car> {
 
+    private static final int NAME_LENGTH_LIMIT = 5;
+    private static final String NAME_REGEX = "^[a-zA-Z]*$";
+    private static final int MOVEMENT_CONDITION_NUMBER = 4;
+
     private final String name;
     private int distance;
 
@@ -26,7 +30,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= MOVEMENT_CONDITION_NUMBER) {
             distance++;
         }
     }
@@ -37,15 +41,13 @@ public class Car implements Comparable<Car> {
     }
 
     private void validateOnlyLetters(String name) {
-        String lettersRegex = "^[a-zA-Z]*$";
-
-        if (!Pattern.matches(lettersRegex, name)) {
+        if (!Pattern.matches(NAME_REGEX, name)) {
             throw new IllegalArgumentException(NON_ENGLISH_CAR_NAME);
         }
     }
 
     private void validateNameLength(String name) {
-        if (name.length() >= 5) {
+        if (name.length() >= NAME_LENGTH_LIMIT) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER);
         }
     }

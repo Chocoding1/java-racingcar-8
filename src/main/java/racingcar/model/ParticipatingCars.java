@@ -7,6 +7,8 @@ import static racingcar.model.ErrorMessage.INSUFFICIENT_NUMBER_OF_CARS;
 
 public class ParticipatingCars {
 
+    private static final int MINIMUM_NUMBER_OF_CARS = 2;
+
     private final List<Car> cars;
 
     public ParticipatingCars(String initialCarNames) {
@@ -44,7 +46,7 @@ public class ParticipatingCars {
     }
 
     private void validateNumberOfCars(List<Car> cars) {
-        if (cars.size() < 2) {
+        if (cars.size() < MINIMUM_NUMBER_OF_CARS) {
             throw new IllegalArgumentException(INSUFFICIENT_NUMBER_OF_CARS);
         }
     }
