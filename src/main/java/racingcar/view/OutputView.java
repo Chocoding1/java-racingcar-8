@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
+import racingcar.model.ParticipatingCars;
 
 public class OutputView {
 
@@ -25,7 +26,9 @@ public class OutputView {
         System.out.println(RACING_RESULT_TITLE);
     }
 
-    public void renderingRacingResult(List<Car> cars) {
+    public void renderingRacingResult(ParticipatingCars participatingCars) {
+        List<Car> cars = participatingCars.getCars();
+
         System.out.println(getRacingResult(cars));
     }
 
