@@ -57,10 +57,6 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        StringBuilder distanceForRendering = new StringBuilder();
-        for (int i = 0; i < distance; i++) {
-            distanceForRendering.append("-");
-        }
-        return name + " : " + distanceForRendering;
+        return name + " : " + "-".repeat(Math.max(0, distance));
     }
 }
