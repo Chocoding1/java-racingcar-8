@@ -28,12 +28,17 @@ public class RacingController {
         ParticipatingCars participatingCars = new ParticipatingCars(initialCarNames);
 
         outputView.renderingRacingResultTitle();
+
+        progressRacing(frequency, participatingCars);
+
+        outputView.renderingWinners(participatingCars.getWinners());
+    }
+
+    private void progressRacing(int frequency, ParticipatingCars participatingCars) {
         for (int i = 0; i < frequency; i++) {
             participatingCars.moveCars();
 
             outputView.renderingRacingResult(participatingCars);
         }
-
-        outputView.renderingWinners(participatingCars.getWinners());
     }
 }
