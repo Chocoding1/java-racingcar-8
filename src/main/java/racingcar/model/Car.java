@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.regex.Pattern;
 
 import static racingcar.model.ErrorMessage.CAR_NAME_LENGTH_OVER;
@@ -35,6 +36,16 @@ public class Car implements Comparable<Car> {
         }
     }
 
+    @Override
+    public int compareTo(Car car) {
+        return car.distance - this.distance;
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(Math.max(0, distance));
+    }
+
     private void validateName(String name) {
         validateOnlyLetters(name);
         validateNameLength(name);
@@ -50,15 +61,5 @@ public class Car implements Comparable<Car> {
         if (name.length() >= NAME_LENGTH_LIMIT) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER);
         }
-    }
-
-    @Override
-    public int compareTo(Car car) {
-        return car.distance - this.distance;
-    }
-
-    @Override
-    public String toString() {
-        return name + " : " + "-".repeat(Math.max(0, distance));
     }
 }
