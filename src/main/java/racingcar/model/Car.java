@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import static racingcar.model.ErrorMessage.CAR_NAME_LENGTH_OVER;
 import static racingcar.model.ErrorMessage.NON_ENGLISH_CAR_NAME;
 
-public class Car implements Comparable<Car> {
+public class Car {
 
     private static final int NAME_LENGTH_LIMIT = 5;
     private static final String NAME_REGEX = "^[a-zA-Z]*$";
@@ -34,11 +34,6 @@ public class Car implements Comparable<Car> {
         if (Randoms.pickNumberInRange(0, 9) >= MOVEMENT_CONDITION_NUMBER) {
             distance++;
         }
-    }
-
-    @Override
-    public int compareTo(Car car) {
-        return car.distance - this.distance;
     }
 
     @Override
