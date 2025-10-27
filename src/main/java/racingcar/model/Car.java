@@ -49,7 +49,7 @@ public class Car {
     }
 
     private void validateNameBlank(String name) {
-        if (name.isBlank()) {
+        if (name.strip().isBlank()) {
             throw new IllegalArgumentException(CAR_NAME_IS_BLANK);
         }
     }
