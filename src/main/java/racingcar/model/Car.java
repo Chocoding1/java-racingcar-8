@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.regex.Pattern;
 
+import static racingcar.model.ErrorMessage.CAR_NAME_IS_BLANK;
 import static racingcar.model.ErrorMessage.CAR_NAME_LENGTH_OVER;
 import static racingcar.model.ErrorMessage.NON_ENGLISH_CAR_NAME;
 
@@ -42,8 +43,15 @@ public class Car {
     }
 
     private void validateName(String name) {
+        validateNameBlank(name);
         validateOnlyLetters(name);
         validateNameLength(name);
+    }
+
+    private void validateNameBlank(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException(CAR_NAME_IS_BLANK);
+        }
     }
 
     private void validateOnlyLetters(String name) {
