@@ -12,7 +12,7 @@ class ParticipatingCarsTest {
     @DisplayName("참가 자동차 수가 2대 미만일 시 IllegalArgumentException 예외 발생")
     void throw_exception_when_number_of_cars_less_than_2() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> new ParticipatingCars("cho"))
+                assertThatThrownBy(() -> new ParticipationCars("cho"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

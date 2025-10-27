@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.ParticipatingCars;
+import racingcar.model.ParticipationCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -25,7 +25,7 @@ public class RacingController {
         String initialCarNames = inputView.getInitialCarNames();
         int frequency = inputView.getFrequency();
 
-        ParticipatingCars participatingCars = new ParticipatingCars(initialCarNames);
+        ParticipationCars participatingCars = new ParticipationCars(initialCarNames);
 
         outputView.renderingRacingResultTitle();
 
@@ -34,7 +34,7 @@ public class RacingController {
         outputView.renderingWinners(participatingCars.getWinners());
     }
 
-    private void progressRacing(int frequency, ParticipatingCars participatingCars) {
+    private void progressRacing(int frequency, ParticipationCars participatingCars) {
         for (int i = 0; i < frequency; i++) {
             participatingCars.moveCars();
 

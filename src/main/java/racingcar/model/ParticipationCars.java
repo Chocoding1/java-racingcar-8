@@ -5,14 +5,14 @@ import java.util.List;
 
 import static racingcar.model.ErrorMessage.INSUFFICIENT_NUMBER_OF_CARS;
 
-public class ParticipatingCars {
+public class ParticipationCars {
 
     private static final int MINIMUM_NUMBER_OF_CARS = 2;
     private static final String NAME_SPLIT_DELIMITER = ",";
 
     private final List<Car> cars;
 
-    public ParticipatingCars(String initialCarNames) {
+    public ParticipationCars(String initialCarNames) {
         List<Car> cars = namesToCars(initialCarNames);
         validateNumberOfCars(cars);
         this.cars = cars;
