@@ -7,6 +7,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -23,10 +25,11 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 예외_테스트() {
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,,jun", "pobi, ,jun", "pobi,woni*jun", "pobiwoni,jun"})
+    void 예외_테스트(String inputString) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException(inputString, "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
